@@ -4,6 +4,6 @@ export default function robots() {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://kyuverse.my.id/sitemap.xml',
+    sitemap: 'https://www.kyuverse.my.id/sitemap.xml'
   };
 }

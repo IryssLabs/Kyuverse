@@ -1,8 +1,7 @@
 export default function sitemap() {
   return [
     {
-      url: 'https://kyuverse.my.id',
-      lastModified: new Date(),
+      url: 'https://www.kyuverse.my.id', 
       changeFrequency: 'monthly',
       priority: 1,
     },
