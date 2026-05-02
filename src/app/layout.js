@@ -5,14 +5,14 @@ import Navbar from '@/components/Navbar';
 
 export const metadata = {
   // Pindahkan ke sini
-  metadataBase: new URL('https://kyuverse.my.id'),
+  metadataBase: new URL('https://www.kyuverse.my.id'),
   title: 'Kyuverse - Creative Web Developer for Artists & Cosplayers',
   description: 'Specialist building portfolio websites, commission platforms, and community spaces for artists, cosplayers, and creative communities.',
   keywords: 'web developer artist, cosplayer website, portfolio artist, commission platform, vtuber site',
   openGraph: {
     title: 'Kyuverse - Creative Web Developer for Artists & Cosplayers',
     description: 'Portfolio websites & commission platforms for creative people.',
-    url: 'https://kyuverse.my.id',
+    url: 'https://www.kyuverse.my.id',
     siteName: 'Kyuverse',
     images: [
       {
