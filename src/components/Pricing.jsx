@@ -11,7 +11,17 @@ import { getAccentClasses } from "@/utils/pricingStyles";
 export default function Pricing() {
   const [isVisible, setIsVisible] = useState(false);
   const [currency, setCurrency] = useState("IDR");
+  const [activeTooltip, setActiveTooltip] = useState(null);
   const sectionRef = useRef(null);
+
+  // Close tooltip when clicking outside
+  useEffect(() => {
+    const handleClickOutside = () => setActiveTooltip(null);
+    if (activeTooltip) {
+      document.addEventListener('click', handleClickOutside);
+      return () => document.removeEventListener('click', handleClickOutside);
+    }
+  }, [activeTooltip]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -172,16 +182,37 @@ export default function Pricing() {
 
                   {/* Features */}
                   <ul className="space-y-3 mb-8 flex-1">
-                    {plan.features.map(({ icon: Icon, text }) => (
-                      <li key={text} className="flex items-center gap-3">
-                        <div className={`w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0 ${accent.iconBg}`}>
-                          <Icon className={`w-3.5 h-3.5 ${accent.iconColor}`} />
-                        </div>
-                        <span className="text-gray-300 text-xs font-medium leading-snug hover:text-white transition-colors">
-                          {text}
-                        </span>
-                      </li>
-                    ))}
+                    {plan.features.map(({ icon: Icon, text, tooltip }, featureIndex) => {
+                      const tooltipId = `${plan.id}-${featureIndex}`;
+                      const isActive = activeTooltip === tooltipId;
+                      return (
+                        <li key={text} className="flex items-start gap-3 group/feature">
+                          <div className={`w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5 ${accent.iconBg}`}>
+                            <Icon className={`w-3.5 h-3.5 ${accent.iconColor}`} />
+                          </div>
+                          <div className="relative flex-1">
+                            <span 
+                              onClick={(e) => {
+                                if (tooltip) {
+                                  e.stopPropagation();
+                                  setActiveTooltip(isActive ? null : tooltipId);
+                                }
+                              }}
+                              className={`text-xs font-medium leading-snug transition-colors inline ${tooltip ? 'text-gray-300 hover:text-white cursor-pointer border-b border-dotted border-gray-500 md:cursor-help' : 'text-gray-300 hover:text-white'}`}
+                            >
+                              {text}
+                            </span>
+                            {tooltip && (
+                              <div className={`absolute top-full left-0 mt-2 w-64 p-3 bg-[#1a1a1c] border border-white/10 rounded-xl shadow-xl z-50 md:bottom-full md:top-auto md:mt-0 md:mb-2 transition-all duration-200 ${isActive ? 'opacity-100 visible' : 'opacity-0 invisible md:group-hover/feature:opacity-100 md:group-hover/feature:visible'}`}>
+                                <p className="text-[11px] text-gray-300 leading-relaxed">{tooltip}</p>
+                                <div className="absolute bottom-full left-4 w-2 h-2 bg-[#1a1a1c] border-l border-t border-white/10 rotate-45 -mb-1 md:hidden"></div>
+                                <div className="hidden md:block md:absolute md:top-full md:left-4 md:w-2 md:h-2 md:bg-[#1a1a1c] md:border-r md:border-b md:border-white/10 md:rotate-45 md:-mt-1"></div>
+                              </div>
+                            )}
+                          </div>
+                        </li>
+                      );
+                    })}
                   </ul>
 
                   {/* CTA */}
@@ -269,16 +300,37 @@ export default function Pricing() {
 
                   {/* Features */}
                   <ul className="space-y-3 mb-8 flex-1">
-                    {plan.features.map(({ icon: Icon, text }) => (
-                      <li key={text} className="flex items-center gap-3">
-                        <div className={`w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0 ${accent.iconBg}`}>
-                          <Icon className={`w-3.5 h-3.5 ${accent.iconColor}`} />
-                        </div>
-                        <span className="text-gray-300 text-xs font-medium leading-snug hover:text-white transition-colors">
-                          {text}
-                        </span>
-                      </li>
-                    ))}
+                    {plan.features.map(({ icon: Icon, text, tooltip }, featureIndex) => {
+                      const tooltipId = `${plan.id}-${featureIndex}`;
+                      const isActive = activeTooltip === tooltipId;
+                      return (
+                        <li key={text} className="flex items-start gap-3 group/feature">
+                          <div className={`w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5 ${accent.iconBg}`}>
+                            <Icon className={`w-3.5 h-3.5 ${accent.iconColor}`} />
+                          </div>
+                          <div className="relative flex-1">
+                            <span 
+                              onClick={(e) => {
+                                if (tooltip) {
+                                  e.stopPropagation();
+                                  setActiveTooltip(isActive ? null : tooltipId);
+                                }
+                              }}
+                              className={`text-xs font-medium leading-snug transition-colors inline ${tooltip ? 'text-gray-300 hover:text-white cursor-pointer border-b border-dotted border-gray-500 md:cursor-help' : 'text-gray-300 hover:text-white'}`}
+                            >
+                              {text}
+                            </span>
+                            {tooltip && (
+                              <div className={`absolute top-full left-0 mt-2 w-64 p-3 bg-[#1a1a1c] border border-white/10 rounded-xl shadow-xl z-50 md:bottom-full md:top-auto md:mt-0 md:mb-2 transition-all duration-200 ${isActive ? 'opacity-100 visible' : 'opacity-0 invisible md:group-hover/feature:opacity-100 md:group-hover/feature:visible'}`}>
+                                <p className="text-[11px] text-gray-300 leading-relaxed">{tooltip}</p>
+                                <div className="absolute bottom-full left-4 w-2 h-2 bg-[#1a1a1c] border-l border-t border-white/10 rotate-45 -mb-1 md:hidden"></div>
+                                <div className="hidden md:block md:absolute md:top-full md:left-4 md:w-2 md:h-2 md:bg-[#1a1a1c] md:border-r md:border-b md:border-white/10 md:rotate-45 md:-mt-1"></div>
+                              </div>
+                            )}
+                          </div>
+                        </li>
+                      );
+                    })}
                   </ul>
 
                   {/* CTA */}
