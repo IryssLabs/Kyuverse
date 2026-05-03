@@ -14,7 +14,7 @@ export const metadata = {
     siteName: 'Kyuverse',
     images: [
       {
-        url: 'https://www.kyuverse.my.id/og-image.png',
+        url: 'https://www.kyuverse.my.id/og-image-v2.png',
         width: 1200,
         height: 630,
         alt: 'Kyuverse Portfolio Preview',
@@ -26,7 +26,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Kyuverse - Creative Web Developer for Artists & Cosplayers',
     description: 'Portfolio websites & commission platforms for creative people.',
-    images: ['https://www.kyuverse.my.id/og-image.png'],
+    images: ['https://www.kyuverse.my.id/og-image-v2.png'],
   },
 };
 
