@@ -1,10 +1,8 @@
 import './globals.css';
 import Navbar from '@/components/Navbar';
-
-// Hapus baris metadataBase yang di luar ini
+import Script from 'next/script';
 
 export const metadata = {
-  // Pindahkan ke sini
   metadataBase: new URL('https://www.kyuverse.my.id'),
   title: 'Kyuverse - Creative Web Developer for Artists & Cosplayers',
   description: 'Specialist building portfolio websites, commission platforms, and community spaces for artists, cosplayers, and creative communities.',
@@ -16,7 +14,7 @@ export const metadata = {
     siteName: 'Kyuverse',
     images: [
       {
-        url: '/og-image.png', // Sekarang ini akan otomatis jadi https://kyuverse.my.id/og-image.png
+        url: '/og-image.png',
         width: 1200,
         height: 630,
         alt: 'Kyuverse Portfolio Preview',
@@ -39,16 +37,27 @@ export default function RootLayout({ children }) {
         <link rel="icon" href="/favicon.ico" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        
+        {/* Google Analytics */}
+        <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-0GZ6LJSJ70"
+        />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+        >
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-0GZ6LJSJ70');
+          `}
+        </Script>
       </head>
       <body className="bg-[#0a0a0c] text-foreground antialiased">
 
-        {/* ── SHARED BACKGROUND LAYER ──────────────────────────────────────
-            Fixed di belakang semua section. Blob-blob ini "menembus" scroll,
-            kasih kesan depth/3D tanpa Three.js. Zero performance cost.
-        ──────────────────────────────────────────────────────────────────── */}
         <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
-
-          {/* Blob utama — cyan, anchor di top-center */}
           <div
             className="absolute -top-40 left-1/2 -translate-x-1/2 w-[900px] h-[900px] rounded-full opacity-[0.07]"
             style={{
@@ -56,8 +65,6 @@ export default function RootLayout({ children }) {
               filter: "blur(80px)",
             }}
           />
-
-          {/* Blob kiri tengah — blue */}
           <div
             className="absolute top-[40vh] -left-40 w-[600px] h-[600px] rounded-full opacity-[0.05]"
             style={{
@@ -65,8 +72,6 @@ export default function RootLayout({ children }) {
               filter: "blur(90px)",
             }}
           />
-
-          {/* Blob kanan tengah — purple */}
           <div
             className="absolute top-[70vh] -right-40 w-[500px] h-[500px] rounded-full opacity-[0.06]"
             style={{
@@ -74,8 +79,6 @@ export default function RootLayout({ children }) {
               filter: "blur(80px)",
             }}
           />
-
-          {/* Blob bawah — cyan lagi, buat closing loop */}
           <div
             className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] h-[700px] rounded-full opacity-[0.05]"
             style={{
@@ -83,8 +86,6 @@ export default function RootLayout({ children }) {
               filter: "blur(100px)",
             }}
           />
-
-          {/* Grid texture global — sangat subtle */}
           <div
             className="absolute inset-0 opacity-[0.025]"
             style={{
@@ -95,7 +96,6 @@ export default function RootLayout({ children }) {
           />
         </div>
 
-   
         {children}
       </body>
     </html>

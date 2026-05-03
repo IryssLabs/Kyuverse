@@ -114,7 +114,7 @@ export const plans = [
     idealFor: ["artist"],
     features: [
       { icon: Layers, text: "Everything in Creative" },
-      { icon: BookOpen, text: "Full CMS — blog & portfolio", tooltip: "Write blog posts and upload new artwork yourself anytime — no coding needed. Like having your own WordPress dashboard." },
+      { icon: BookOpen, text: "Update content yourself", tooltip: "Edit your website anytime — upload new artwork, change text, or post updates without waiting for us. Simple and easy, no coding required!" },
       { icon: Mail, text: "Newsletter & email automation", tooltip: "Fans can subscribe with their email. Automatically notify them when you post new art or updates." },
       { icon: BarChart3, text: "Analytics dashboard + insights", tooltip: "See how many people visit your site, where they come from, and which artwork gets the most views." },
       { icon: Zap, text: "CDN & performance optimization", tooltip: "Your images and videos load super fast anywhere in the world — Jakarta, Tokyo, or New York." },

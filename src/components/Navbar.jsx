@@ -148,15 +148,7 @@ export default function Navbar() {
                 {link.label}
               </Link>
             ))}
-            <div className="pt-2">
-              <Link
-                href="/contact"
-                onClick={() => setMenuOpen(false)}
-                className="block text-center px-4 py-3 rounded-xl bg-cyan-500 text-black text-[11px] font-black uppercase tracking-widest"
-              >
-                Hire Me
-              </Link>
-            </div>
+         
           </div>
         </div>
       </nav>
