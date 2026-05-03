@@ -152,9 +152,9 @@ export default function Hero() {
               </div>
             </div>
             <div className="group">
-              <div className="text-2xl font-black text-purple-400">Artist</div>
+              <div className="text-2xl font-black text-purple-400">Creative</div>
               <div className="text-[10px] text-gray-500 uppercase tracking-widest mt-1 font-bold">
-                Focused
+                For All Creatives
               </div>
             </div>
             <div className="group">
