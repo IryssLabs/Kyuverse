@@ -237,10 +237,19 @@ function buildAutoReplyEmail({ name, contact, pkg, price, message }) {
 // ── Route handler ────────────────────────────────────────────────────────────
 export async function POST(request) {
   try {
-    const { name, contact, package: pkg, price, message } = await request.json();
+    const {
+      name,
+      contact,
+      package: pkg,
+      price,
+      message,
+    } = await request.json();
 
     if (!name || !contact || !pkg || !message) {
-      return Response.json({ error: "Missing required fields" }, { status: 400 });
+      return Response.json(
+        { error: "Missing required fields" },
+        { status: 400 },
+      );
     }
 
     const userEmail = contact.split("/")[0].trim();

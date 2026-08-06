@@ -182,11 +182,11 @@ function ContactFormInner() {
     <div className="relative w-full max-w-2xl mx-auto">
       {/* Back link */}
       <Link
-        href="/"
+        href="/service"
         className="inline-flex items-center gap-2 text-gray-500 hover:text-cyan-400 text-[11px] font-black uppercase tracking-widest transition-colors duration-200 mb-6 group"
       >
         <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-1 transition-transform" />
-        Back to Home
+        Back to service
       </Link>
 
       <div className="p-8 rounded-2xl bg-[#0a0a0c]/80 border border-white/10 backdrop-blur-md shadow-[0_0_40px_rgba(34,211,238,0.05)]">
@@ -200,7 +200,7 @@ function ContactFormInner() {
                 style={{ width: `${(i + 1) * 14}px`, opacity: 0.4 + i * 0.15 }}
               />
             ))}
-            <Sparkles className="w-3 h-3 text-cyan-400 mx-1" />
+            
             {[...Array(5)].map((_, i) => (
               <div
                 key={i}

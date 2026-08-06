@@ -1,30 +1,7 @@
 import {
   Check,
 } from "lucide-react";
-import {
-  Moon,
-  Flower,
-  Lightning,
-  Leaf,
-  Square,
-  Sparkle as SparkleIcon,
-  Television,
-  Disc,
-  Heart,
-  Star,
-  Sun,
-  Cloud,
-  Drop,
-  Flame,
-  Ghost,
-  Alien,
-  Peace,
-  Butterfly,
-  Cat,
-  Crown,
-  Diamond,
-  ShootingStar,
-} from "@phosphor-icons/react";
+import { Moon, Flower, Lightning, Leaf, Square, Sparkle as SparkleIcon, Television, Disc, Heart, Star, Sun, Cloud, Drop, Flame, Ghost, Alien, Peace, Butterfly, Cat, Crown, Diamond, ShootingStar, } from "@phosphor-icons/react";
 
 // Color Options - Available for ALL plans (no tier restrictions)
 export const colorOptions = [

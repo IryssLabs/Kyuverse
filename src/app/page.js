@@ -1,20 +1,17 @@
-import Hero from '@/components/Hero';
-import Projects from '@/components/Projects';
-import Footer from '@/components/Footer';
-import Discover from '@/components/Discover';
-import Pricing from '@/components/Pricing';   
-import Navbar from '@/components/Navbar';
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import Hero from "@/components/home/Hero";
+import TwoPillars from "@/components/home/TwoPillars";
 
 export default function Home() {
   return (
     <>
       <Navbar />
-      <Hero />
-      <Projects />
-      <Discover />
-      <Pricing />
+      <main className="relative bg-[#0a0a0c] text-white overflow-hidden">
+        <Hero />
+        <TwoPillars/>
+      </main>
       <Footer />
-     
     </>
   );
 }
