@@ -7,6 +7,21 @@ import Projects from "@/components/service/Projects";
 import Discover from "@/components/service/Discover";
 import Pricing from "@/components/service/Pricing";
 
+export const metadata = {
+  title: "Custom Website Development & Digital Services",
+  description:
+    "Professional web development services tailored for creators, anime convention projects, artists, and agencies. Get high-performance portfolio & custom web apps.",
+  alternates: {
+    canonical: "https://www.kyuverse.my.id/service",
+  },
+  openGraph: {
+    title: "Custom Website Development & Digital Services | Kyuverse",
+    description:
+      "Professional web development services tailored for creators, anime convention projects, artists, and agencies.",
+    url: "https://www.kyuverse.my.id/service",
+  },
+};
+
 export default function ServicePage() {
   return (
     <>
