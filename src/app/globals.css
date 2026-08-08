@@ -1,13 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap');
 @import "tailwindcss";
 
-
-
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-
-  /* Font global baru */
+  --background: #0a0a0c;
+  --foreground: #ededed;
   --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
 }
 
@@ -18,29 +14,85 @@
   --font-mono: ui-monospace, monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-/* Global typography */
+/* Global Typography & Base Body */
 html {
   font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
+  min-height: 100vh;
+  antialiased: true;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-weight: 600;
+  font-weight: 700;
   line-height: 1.15;
   letter-spacing: -0.02em;
 }
 
 p {
   line-height: 1.7;
+}
+
+/* Custom Subtle Thin Scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  height: 3px;
+  width: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(34, 211, 238, 0.4);
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(34, 211, 238, 0.8);
+}
+
+/* Utility to hide scrollbar */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* =========================================================
+   HP / HEALTH BAR PROGRESS ANIMATOR FOR SONNER TOAST
+   ========================================================= */
+[data-sonner-toast] {
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+[data-sonner-toast]::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  background: linear-gradient(90deg, #22d3ee, #3b82f6);
+  z-index: 50;
+  pointer-events: none;
+  transform-origin: left;
+  animation: hp-bar-shrink 2s linear forwards;
+}
+
+@keyframes hp-bar-shrink {
+  0% {
+    width: 100%;
+  }
+  100% {
+    width: 0%;
+  }
 }
