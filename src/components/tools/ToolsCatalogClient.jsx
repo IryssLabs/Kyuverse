@@ -507,6 +507,7 @@ export default function ToolsCatalogClient() {
         )}
 
         {/* ================= FOOTER CTA BANNER ================= */}
+       {/* ================= FOOTER CTA BANNER (WITH TOAST ACTION) ================= */}
         <div className="mt-20 p-8 sm:p-10 rounded-3xl border border-white/10 bg-gradient-to-r from-cyan-950/20 via-purple-950/20 to-black backdrop-blur-md flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="space-y-2 text-center sm:text-left">
             <h3 className="text-2xl font-black text-white">
@@ -517,12 +518,17 @@ export default function ToolsCatalogClient() {
               request new features you would like us to build!
             </p>
           </div>
-          <Link
-            href="/contact"
-            className="px-6 py-3 rounded-xl bg-white/10 hover:bg-white/20 border border-white/10 text-white font-bold text-xs tracking-widest uppercase transition-all duration-300 whitespace-nowrap"
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              toast.info("We'd love to hear your idea!", {
+                description: "Share your feature requests or feedback directly with our team via Discord or Email.",
+              });
+            }}
+            className="px-6 py-3 rounded-xl bg-cyan-500/10 hover:bg-cyan-500/20 border border-cyan-500/30 text-cyan-300 font-bold text-xs tracking-widest uppercase transition-all duration-300 whitespace-nowrap shadow-[0_0_15px_rgba(34,211,238,0.15)] focus:outline-none focus:ring-0 active:scale-95"
           >
             Request New Tool
-          </Link>
+          </button>
         </div>
       </div>
 
